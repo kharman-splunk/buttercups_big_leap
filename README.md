@@ -1,6 +1,6 @@
 # Buttercup's Big Leap
 
-A responsive, Flappy Bird-inspired ranch arcade game starring Buttercup.
+A ranch arcade game starring Buttercup.
 
 ## Architecture
 
@@ -12,7 +12,7 @@ A responsive, Flappy Bird-inspired ranch arcade game starring Buttercup.
 
 The browser only communicates with the leaderboard through its JSON API. Scores are stored in Cloudflare D1 so the top ten are shared across users and devices.
 
-## Local development
+## To launch the game
 
 Requires Node.js 22.13 or newer.
 
