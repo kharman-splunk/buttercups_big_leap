@@ -12,6 +12,9 @@ interface Env {
       };
     };
   };
+
+  // Optional generic local service. It is unused by the application itself.
+  DEV_SERVICE?: Fetcher;
 }
 
 interface ExecutionContext {

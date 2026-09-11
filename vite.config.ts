@@ -8,6 +8,12 @@ const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
 
 const { d1, r2 } = hostingConfig;
 
+// Optional local Worker-to-Worker service supplied by a development wrapper.
+// The application remains unchanged when this is not set.
+const localDevService = process.env.LOCAL_DEV_SERVICE?.trim();
+const localDevServiceBinding =
+  process.env.LOCAL_DEV_SERVICE_BINDING?.trim() || "DEV_SERVICE";
+
 // macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
 const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 
@@ -31,6 +37,16 @@ const localBindingConfig = {
         },
       ]
     : [],
+  ...(localDevService
+    ? {
+        services: [
+          {
+            binding: localDevServiceBinding,
+            service: localDevService,
+          },
+        ],
+      }
+    : {}),
 };
 
 export default defineConfig(async () => {
