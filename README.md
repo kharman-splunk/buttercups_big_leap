@@ -18,8 +18,13 @@ Requires Node.js 22.13 or newer.
 
 ```bash
 npm ci
-npm run dev -- --port 4120
+npm run dev -- --port 4121
 ```
+
+The `.openai/hosting.json` file is committed because `vite.config.ts` uses it
+to define the local Cloudflare bindings. The `.vinext/`, `.wrangler/`, and
+`.next/` directories are generated locally by vinext/Wrangler and should not
+be copied between clones; the startup and build commands recreate them.
 
 Useful checks:
 
